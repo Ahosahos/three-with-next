@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useSpring, animated, config } from "@react-spring/three";
+import { useFrame } from "@react-three/fiber";
 
 const setOfColors = ["green", "red", "hotpink", "purple", "blue"];
 const colorLength = setOfColors.length;
@@ -20,9 +21,14 @@ export default function SpringedCube(props) {
     setHover(true);
   };
 
+  useFrame(({ clock }) => {
+    mesh.current.rotation.x = Math.cos(clock.getElapsedTime());
+    mesh.current.rotation.y = Math.cos(clock.getElapsedTime());
+  });
+
   return (
     <animated.mesh
-      // {...props}
+      {...props}
       ref={mesh}
       scale={scale}
       onClick={() => setActive(!active)}

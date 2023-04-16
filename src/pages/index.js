@@ -4,14 +4,22 @@ import { Canvas } from "@react-three/fiber";
 
 export default function Home() {
   return (
-    <div style={{ margin: "auto", height: "100vh", width: "100vw" }}>
+    <div
+      style={{
+        margin: "auto",
+        height: "100vh",
+        width: "100vw",
+        background: "black",
+      }}
+    >
       {/*setup position to show 3d cube */}
       <Canvas camera={{ position: [3, 3, 7] }}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        {/* <SwingingCube /> */}
-        <SpringedCube />
+        <SwingingCube />
+        <SpringedCube position={[-5, 0, 0]} />
+        <SpringedCube position={[4, 0, 0]} />
       </Canvas>
     </div>
   );

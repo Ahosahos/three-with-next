@@ -9,10 +9,7 @@ export default function SwingingCube(props) {
   });
 
   return (
-    <mesh
-      // {...props}
-      ref={mesh}
-    >
+    <mesh {...props} ref={mesh}>
       <boxGeometry args={[3, 3, 3]} />
       <meshBasicMaterial color={"yellow"} />
     </mesh>
